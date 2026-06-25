@@ -1,0 +1,4 @@
+Candidate Profile
+
+Built Python data-processing scripts and trained a small PyTorch classifier for
+a university project. Added unit tests and documented experiment results.

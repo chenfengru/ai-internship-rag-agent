@@ -1,0 +1,4 @@
+AI Engineering Intern
+
+Build small Python tools for machine learning workflows. Work with PyTorch
+models, write tests, and communicate experiment results clearly.
