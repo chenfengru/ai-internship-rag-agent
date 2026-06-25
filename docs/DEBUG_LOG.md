@@ -50,3 +50,46 @@ prints JSON.
   Python 3.11.
 - FastAPI, PDF parsing, embeddings, vector stores, agents, and live LLM calls
   remain outside Milestone 1A.
+
+## 2026-06-25 — Minimal project planner module
+
+### Bug
+
+The project had a preparation-action schema but no module that could turn
+prioritized skill gaps into a preparation plan.
+
+### Expected Behavior
+
+The planner should order gaps by priority, create one schema-valid action per
+gap, keep actions inside the requested time window, and reject invalid
+durations.
+
+### Actual Behavior
+
+The first planner test failed during collection because
+`internship_copilot.planning` did not exist.
+
+### Failing Test Added
+
+- `tests/unit/test_planning.py::test_create_preparation_plan_prioritizes_gaps_and_fits_time_window`
+- `tests/unit/test_planning.py::test_create_preparation_plan_rejects_invalid_duration`
+
+### Root Cause
+
+The planner module had not been implemented.
+
+### Fix
+
+Added a small deterministic `create_preparation_plan` function that uses the
+existing `SkillGap`, `Priority`, and `PreparationAction` schemas.
+
+### Verification
+
+- `PYTHONPATH=src python3 -m pytest tests/unit/test_planning.py -q` — passed: 2
+  tests.
+- `PYTHONPATH=src python3 -m pytest -q` — passed: 6 tests.
+- `python3 -m compileall -q src tests` — passed.
+
+### Notes
+
+- The module does not use an LLM and does not infer or rank gaps itself.

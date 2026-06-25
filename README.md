@@ -15,6 +15,7 @@ analysis. It does not yet perform RAG or LLM analysis.
 - Core Pydantic schemas and evidence-reference validation.
 - Plain-text CLI input.
 - Deterministic fixture analysis with schema-valid JSON output.
+- Deterministic preparation planning from prioritized skill gaps.
 - Schema, invalid-input, evidence-reference, and CLI tests.
 
 **Planned**
@@ -91,6 +92,7 @@ This workflow is planned and does not run yet.
 | FAISS evidence retrieval | Planned — Milestone 2 | Use a request-scoped in-memory index. |
 | Evidence-based match labels | Planned — Milestone 2 | Prevent unsupported positive claims. |
 | Gap prioritization | Planned — Milestone 2 | Use visible, mostly deterministic scoring. |
+| Deterministic preparation planner | Implemented | Convert prioritized gaps into time-bounded actions. |
 | Personalized preparation plan | Planned — Milestone 3 | Generate time-bounded learning, project, and interview actions. |
 | Evaluation and portfolio demo | Planned — Milestone 3 | Publish actual results and failure cases after evaluation. |
 | Bounded agent workflow | Optional — Milestone 4 | Consider only if evaluation demonstrates a need. |
@@ -178,6 +180,7 @@ branching.
 │   └── internship_copilot/
 │       ├── __init__.py
 │       ├── cli.py
+│       ├── planning.py
 │       ├── schemas.py
 │       └── service.py
 └── tests/
